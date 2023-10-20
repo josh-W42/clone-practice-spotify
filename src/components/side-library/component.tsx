@@ -1,15 +1,22 @@
-import { Container, Box, IconButton } from "@mui/material";
-import { FunctionComponent } from "react";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Container, Box, IconButton } from '@mui/material';
+import { FunctionComponent } from 'react';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { ButtonMenu } from './components';
+import { MenuOption } from './components/button-menu/component';
 
-export const SideLibraryComponent: FunctionComponent = () => {
+interface Props {
+  createOptions: MenuOption[];
+}
+
+export const SideLibraryComponent: FunctionComponent<Props> = ({
+  createOptions,
+}) => {
   return (
     <Container
       sx={{
-        position: "fixed",
-        border: "1px solid blue",
-        width: "30%",
+        position: 'fixed',
+        border: '1px solid blue',
+        width: '30%',
         padding: 0,
         margin: 0,
         left: 0,
@@ -17,12 +24,12 @@ export const SideLibraryComponent: FunctionComponent = () => {
     >
       <Box
         sx={{
-          width: "100%",
-          alignItems: "center",
-          flexDirection: "row",
-          display: "flex",
-          color: "white",
-          border: "1px solid white",
+          width: '100%',
+          alignItems: 'center',
+          flexDirection: 'row',
+          display: 'flex',
+          color: 'white',
+          border: '1px solid white',
         }}
       >
         <Box>
@@ -30,10 +37,12 @@ export const SideLibraryComponent: FunctionComponent = () => {
         </Box>
         <Box sx={{ flexGrow: 1 }}></Box>
         <Box>
-          <IconButton color="secondary" aria-label="add an alarm">
-            <AddCircleIcon />
-          </IconButton>
-          <IconButton color="secondary" aria-label="add an alarm">
+          <ButtonMenu
+            label="Create a playlist or folder"
+            menuOptions={createOptions}
+            showTooltip
+          />
+          <IconButton color="inherit" aria-label="Show more">
             <ArrowForwardIcon />
           </IconButton>
         </Box>

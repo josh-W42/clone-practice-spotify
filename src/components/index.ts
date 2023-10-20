@@ -1,1 +1,1 @@
-export * from "./side-library";
+export * from './side-library';
