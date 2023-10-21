@@ -26,9 +26,10 @@ export const ButtonMenuComponent: FunctionComponent<Props> = ({
   handleClick,
   handleClose,
 }) => {
-  const GetOptions = menuOptions.map((option) => {
+  const GetOptions = menuOptions.map((option, index) => {
     return (
       <MenuItem
+        key={`side-menu-option-${index}`}
         onClick={() => {
           handleClose();
           option.action();
