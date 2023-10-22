@@ -3,3 +3,13 @@ export enum SideLibraryStates {
   open,
   extended,
 }
+
+export enum SideLibraryFilters {
+  none,
+  playlists,
+  playlistSpotify,
+  playlistYou,
+  playlistWriteable,
+  artists,
+  albums,
+}

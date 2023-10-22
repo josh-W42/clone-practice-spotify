@@ -3,11 +3,14 @@ import { SideLibraryComponent } from './component';
 import { MenuOption } from './components/button-menu/component';
 import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
-import { SideLibraryStates } from './types';
+import { SideLibraryFilters, SideLibraryStates } from './types';
 
 export const SideLibrary: FunctionComponent = () => {
   const [openState, setOpenState] = useState<SideLibraryStates>(
     SideLibraryStates.closed
+  );
+  const [filter, setFilter] = useState<SideLibraryFilters>(
+    SideLibraryFilters.none
   );
 
   const CreateOptions: MenuOption[] = [
@@ -38,6 +41,12 @@ export const SideLibrary: FunctionComponent = () => {
   return (
     <SideLibraryComponent
       openState={openState}
+      filter={filter}
+      changeFilter={(filter) =>
+        setFilter((prev) =>
+          prev === filter ? SideLibraryFilters.none : filter
+        )
+      }
       changeOpenState={(state) => setOpenState(state)}
       createOptions={CreateOptions}
     />
