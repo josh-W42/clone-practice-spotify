@@ -8,6 +8,15 @@ interface Props {
   changeViewState: (state: SideLibraryPlaylistStates) => void;
 }
 
-export const PlaylistList: FunctionComponent<Props> = () => {
-  return <PlaylistListComponent playlists={[]} />;
+export const PlaylistList: FunctionComponent<Props> = ({
+  viewState,
+  changeViewState,
+}) => {
+  return (
+    <PlaylistListComponent
+      viewState={viewState}
+      changeViewState={changeViewState}
+      playlists={[]}
+    />
+  );
 };
