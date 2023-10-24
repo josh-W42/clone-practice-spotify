@@ -1,15 +1,21 @@
 import { Container, Box, IconButton, Tooltip } from '@mui/material';
 import { FunctionComponent } from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { ButtonMenu, ChipBar } from './components';
+import { ButtonMenu, ChipBar, PlaylistList } from './components';
 import { MenuOption } from './components/button-menu/component';
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
-import { SideLibraryFilters, SideLibraryStates } from './types';
+import {
+  SideLibraryFilters,
+  SideLibraryPlaylistStates,
+  SideLibraryStates,
+} from './types';
 
 interface Props {
   createOptions: MenuOption[];
   filter: SideLibraryFilters;
   openState: SideLibraryStates;
+  playlistState: SideLibraryPlaylistStates;
+  changePlaylistState: (state: SideLibraryPlaylistStates) => void;
   changeOpenState: (state: SideLibraryStates) => void;
   changeFilter: (filter: SideLibraryFilters) => void;
 }
@@ -18,6 +24,8 @@ export const SideLibraryComponent: FunctionComponent<Props> = ({
   createOptions,
   openState,
   filter,
+  playlistState,
+  changePlaylistState,
   changeOpenState,
   changeFilter,
 }) => {
@@ -49,6 +57,13 @@ export const SideLibraryComponent: FunctionComponent<Props> = ({
                 <LibraryBooksOutlinedIcon />
               </IconButton>
             </Tooltip>
+          </Box>
+          <Box>
+            <PlaylistList
+              sideLibraryOpenState={openState}
+              viewState={playlistState}
+              changeViewState={changePlaylistState}
+            />
           </Box>
         </Box>
       </Container>

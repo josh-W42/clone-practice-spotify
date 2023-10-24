@@ -55,3 +55,9 @@ export interface playlistData {
   type: string;
   uri: string;
 }
+
+export enum SideLibraryPlaylistStates {
+  compact,
+  list,
+  grid,
+}

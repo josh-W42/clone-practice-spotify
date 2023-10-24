@@ -1,9 +1,11 @@
 import { FunctionComponent } from 'react';
 import { PlaylistListComponent } from './component';
-import { SideLibraryStates } from '../../types';
+import { SideLibraryPlaylistStates, SideLibraryStates } from '../../types';
 
 interface Props {
-  openState: SideLibraryStates;
+  sideLibraryOpenState: SideLibraryStates;
+  viewState: SideLibraryPlaylistStates;
+  changeViewState: (state: SideLibraryPlaylistStates) => void;
 }
 
 export const PlaylistList: FunctionComponent<Props> = () => {
